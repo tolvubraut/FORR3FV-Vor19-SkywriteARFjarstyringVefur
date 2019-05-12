@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lokaverkefni</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Arduino / VuforiaAR</h1>
+    <h3>Andri Fannar Pétursson / FORR3FV05EU / Tækniskólinn / Tölvubraut</h3>
+  </header>
+
+  <nav id="main">
+    <ul>
+      <li class="logo"><a href="#">LOST.</a></li>
+      <li><a href="index.html">Forsíða</a></li>
+      <li><a href="arduino.html">Arduino</a></li>
+      <li><a href="unity.html">Unity</a></li>
+      <li><a href="myndir.html">Myndir</a></li>
+      <li><a href="betur.html">Hvað mætti laga</a></li>
+    </ul>
+  </nav>
+
+  <div class="site-wrap">
+
+    <p>Tölva: Arduino Uno</p>
+    <p>Bluetooth module: Adafruit Bluefruit LE UART Friend</p>
+    <p>Accelerometer: Adafruit LIS3DH</p>
+    <p>Gyroscope: Sending kom ekki, fékk einhvern útlímdann sem ég fékk ekki til að virka</p>
+    <p>Power Supply: Sending kom ekki</p>
+
+    <img src="myndir/ofana.jpg" width="600" class="align-left slide-in">
+
+    <p>Ætlaði fyrst að nota Arduino Micro en endaði á því að nota Uno þar sem það er meiri heimavöllur. Það var mikið íhlutavesen þannig verkefnið varð aðeins ólíkt því sem var áætlað</p>
+    <p>Fyrst lóðaði ég tenglana á bluetooth module-ið (myndir af útkomunni undir myndir) og notaðist við Documentationið á síðunni hjá þeim til að tengja þetta og setja upp. Það fylgdi með mjög gott library sem ég notaði til að tengjast við farsíma og senda gögn</p>
+    <a href="https://learn.adafruit.com/introducing-the-adafruit-bluefruit-le-uart-friend/introduction">Linkur á Documentation/Library</a>
+    <p>Næst gerði ég það sama fyrir accelerometerinn og þar sem hann er líka frá Adafruit var mjög gott Documentation og library sem fylgdi með</p>
+    <a href="https://learn.adafruit.com/adafruit-lis3dh-triple-axis-accelerometer-breakout/overview">Linkur á Documentation/Library</a>
+    <p>Næst var það að fá þessa tvo hluti til að tala saman. Þeas. Fá bluetooth module-ið til að tala við accelerometerinn og senda gögnin sem hann framkallaði. Það var mikið fikt en það tókst að lokum.</p>
+    <p>Myndband sem sýnir virknina:</p>
+
+    <iframe src="https://www.youtube.com/embed/Ua2F-Uao2a0" height="400" width="600"></iframe>
+
+    
+
+<script>
+  //Setja elementið sem er með id- main inn í nav breytuna
+  const nav = document.querySelector('#main');
+  //Finna út hvar nav-barinn er miðað við topp body
+  const topOfNav = nav.offsetTop;
+  //Functon sem sér um vinnuna
+  function fixNav(){
+    // scrollY segir til um hvað er búið að skrolla mikið niður
+    if(window.scrollY >= topOfNav){
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
+      document.body.classList.add('fixed-nav');
+    } else{
+      document.body.style.paddingTop = 0;
+      document.body.classList.remove('fixed-nav');
+    }
+  }
+  //Fallið nav keyrir í hvert skipti sem það er skrollað
+  window.addEventListener('scroll', fixNav);
+</script>
+
+</body>
+</html>

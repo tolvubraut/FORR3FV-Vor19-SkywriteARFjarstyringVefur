@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lokaverkefni</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Arduino / VuforiaAR</h1>
+    <h3>Andri Fannar Pétursson / FORR3FV05EU / Tækniskólinn / Tölvubraut</h3>
+  </header>
+
+  <nav id="main">
+    <ul>
+      <li class="logo"><a href="#">LOST.</a></li>
+      <li><a href="index.html">Forsíða</a></li>
+      <li><a href="arduino.html">Arduino</a></li>
+      <li><a href="unity.html">Unity</a></li>
+      <li><a href="myndir.html">Myndir</a></li>
+      <li><a href="betur.html">Næst á dagskrá</a></li>
+    </ul>
+  </nav>
+
+  <div class="site-wrap">
+
+    <p>1. Implementa Gyroscope</p>
+    <p>2. Hringja í Tim Cook og spurja hann afhverju ég næ ekki að sækja XCode í 400þús króna MacBook Pro fartölvuna mína</p>
+    <p>3. Ná þá loksins að færa Unity verkefni yfir á iPhone</p>
+    <p>4. Finna leið til þess að "teikna" mynd eftir punktunum</p>
+    <p>5. Finna leið til að koma myndinni dynamically yfir í appið</p>
+    <p>6. Redda PowerBank svo "fjarstýringin" geti verið standalone</p>
+    <p>7. Sell for millions of dollars</p>
+
+    <img src="myndir/ofana2.jpg" width="600" class="align-left slide-in">
+
+    
+
+<script>
+  //Setja elementið sem er með id- main inn í nav breytuna
+  const nav = document.querySelector('#main');
+  //Finna út hvar nav-barinn er miðað við topp body
+  const topOfNav = nav.offsetTop;
+  //Functon sem sér um vinnuna
+  function fixNav(){
+    // scrollY segir til um hvað er búið að skrolla mikið niður
+    if(window.scrollY >= topOfNav){
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
+      document.body.classList.add('fixed-nav');
+    } else{
+      document.body.style.paddingTop = 0;
+      document.body.classList.remove('fixed-nav');
+    }
+  }
+  //Fallið nav keyrir í hvert skipti sem það er skrollað
+  window.addEventListener('scroll', fixNav);
+</script>
+
+</body>
+</html>

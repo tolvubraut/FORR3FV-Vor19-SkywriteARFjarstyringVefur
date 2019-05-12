@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lokaverkefni</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Arduino / VuforiaAR</h1>
+    <h3>Andri Fannar Pétursson / FORR3FV05EU / Tækniskólinn / Tölvubraut</h3>
+  </header>
+
+  <nav id="main">
+    <ul>
+      <li class="logo"><a href="#">LOST.</a></li>
+      <li><a href="index.html">Forsíða</a></li>
+      <li><a href="arduino.html">Arduino</a></li>
+      <li><a href="unity.html">Unity</a></li>
+      <li><a href="myndir.html">Myndir</a></li>
+      <li><a href="betur.html">Hvað mætti laga</a></li>
+    </ul>
+  </nav>
+
+  <div class="site-wrap">
+
+    <p>Verkefnið í stuttu máli er "skywrite" fjarstýring. Í fjarstýringunni er arduino tölva sem er tengd við bluetooth module, accelerometer og gyroscope.</p>
+    <p>Accelerometer og gyroscope mæla staðsetningu og hreyfingu fjarstýringarinnar. Það er þýtt yfir í hnit og tölvan sendir þessi x, y og z hnit yfir í farsíma í gegnum bluetooth module-ið. Þessi hnit myndu svo translate-ast sem punktar í hnitakerfi og línur myndu teiknast á milli punktanna.</p>
+    <p>Maður væri í raun að teikna mynd á "ósýnilegt blað". Þessi mynd sendist svo inn í Augmented Reality app sem útfært er í Unity. Þegar myndavél símans horfir á einhvern ákveðinn stað á vegg birtist myndin sem arduino fjarstýringin teiknaði.</p>
+
+    <img src="myndir/skets.png" class="align-left slide-in">
+
+    <p>Verkefnið er í raun í tveimur hlutum: Arduino hlutinn og Unity hlutinn. Farið er ítarlegra í báða hluta ef ýtt er á þá í efnisyfirlitinu</p>
+
+    <a href="https://github.com/andri95/VF-Lokaverkefni">Linkur á Repository</a>
+
+    
+
+<script>
+  //Setja elementið sem er með id- main inn í nav breytuna
+  const nav = document.querySelector('#main');
+  //Finna út hvar nav-barinn er miðað við topp body
+  const topOfNav = nav.offsetTop;
+  //Functon sem sér um vinnuna
+  function fixNav(){
+    // scrollY segir til um hvað er búið að skrolla mikið niður
+    if(window.scrollY >= topOfNav){
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
+      document.body.classList.add('fixed-nav');
+    } else{
+      document.body.style.paddingTop = 0;
+      document.body.classList.remove('fixed-nav');
+    }
+  }
+  //Fallið nav keyrir í hvert skipti sem það er skrollað
+  window.addEventListener('scroll', fixNav);
+</script>
+
+</body>
+</html>
